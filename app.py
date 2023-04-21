@@ -1,6 +1,9 @@
-from flask import render_template, redirect, url_for, Flask, flash
-from flask_login import current_user, login_user, logout_user
+from flask import Flask
+from flask_pymongo import PyMongo
+
 app = Flask(__name__)
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/mydatabase'
+mongo = PyMongo(app)
 
 @app.route('/')
 def home():
